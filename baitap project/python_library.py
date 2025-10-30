@@ -137,3 +137,28 @@ def binary_search():
 
     print("not found", target)
     return False
+
+def groupAnagrams():
+    strs = str(input())
+    groups = {}
+    for s in strs:
+        key = ''.join(sorted(s))  
+        if key not in groups:
+            groups[key] = []
+        groups[key].append(s)
+
+    return list(groups.values())
+
+def quicksort():
+    nums = array_input() 
+
+    def sort(arr):  
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[len(arr)//2]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return sort(left) + middle + sort(right)
+
+    return sort(nums)
