@@ -50,4 +50,14 @@ def maze_path():
         visited.remove((x, y))
     solve_maze(maze, x, y, [], visited)
 
-maze_path()
+def bianary():
+    n = int(input())
+    def generate_binary(curr):
+        if len(curr) == n:
+            print(curr)
+            return
+        generate_binary(curr + '0')
+        generate_binary(curr + '1')
+    generate_binary('')
+bianary()
+    
