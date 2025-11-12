@@ -69,7 +69,6 @@ def xoa_mang():
         if i not in arr:
             arr.append(i)
     return arr
-print(xoa_mang())
 
 def ghep_list():
     a = array_input()
