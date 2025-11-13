@@ -1,20 +1,4 @@
 import time
-def tuyet_chieu():
-    d = []
-    with open('TUYETCHIEU.INP','r') as f:
-        [n, k] = f.readline().split()
-        c = list(map(int, f.readline().split()))
-    for i in range(len(c)):
-        end = min(i + int(k),len(c))
-        for j in range(i + 1,end):
-            if c[j] == c[i]:
-                d.append(c[i])
-    # with open('TUYETCHIEU.OUT','w') as f:
-    if not d:
-        print('-1')
-    else:
-        print(str(min(d)))
-
 
 def tuyet_chieu1():
     with open('TUYETCHIEU.INP','r') as f:
