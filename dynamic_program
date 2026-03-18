@@ -1,0 +1,36 @@
+from python_library import array_input
+
+def LIS():
+    arr = array_input()
+    n = len(arr)
+
+    # dp[i] = độ dài LIS kết thúc tại i
+    dp = [1] * n
+
+    # parent[i] = phần tử đứng trước arr[i] trong chuỗi LIS
+    parent = [-1] * n
+
+    # Tính dp và parent
+    for i in range(n):
+        for j in range(i):
+            if arr[j] < arr[i] and dp[j] + 1 > dp[i]:
+                dp[i] = dp[j] + 1
+                parent[i] = j
+
+    # Tìm vị trí có LIS dài nhất
+    max_len = max(dp)
+    last_index = dp.index(max_len)
+
+    # Truy hồi LIS từ parent[]
+    lis = []
+    while last_index != -1:
+        lis.append(arr[last_index])
+        last_index = parent[last_index]
+
+    # Đảo lại để được dãy đúng thứ tự
+    lis.reverse()
+
+    return lis
+
+
+print(LIS())
